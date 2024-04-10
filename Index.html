@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #startBtn {
+            /* размеры кнопки*/
+            width: 170px;
+            height: 90px;
+
+            /* характеристики шрифта*/
+            font-size: 35px;
+            color: white;
+
+            /* позиция кнопки на экране */
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            /* дополнительные параметры*/
+            border-radius: 15px;
+            border-color: aqua;
+            background-color: rgb(197, 235, 248);
+        }
+
+        #introduction{
+            width: 170px;
+
+            font-size: 22px;
+            color: rgba(0, 0, 139, 0.473);
+            padding: 25px;
+            text-align: center;
+
+            position: absolute;
+            bottom: 250px;
+            left: 45%;
+
+            border-radius: 15px;
+            background-color: rgba(254, 254, 254, 0.4);
+        }
+		
+		#gameover{
+			width: 300px;
+			font-size: 50px;
+			color: darkblue;
+			text-align: center;
+			left: 50%;
+			display: none;
+			position: absolute;
+			bottom: 240px;
+			transform: translateX(-50%);
+			border-radius: 10px;
+			padding: 25px;
+			background-color: rgba(250, 250, 250, 0.4);
+		}
+		
+		#info{
+			width: 100%;
+			font-size: 45px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			}
+		#info img{
+			padding-top: 20px;
+			}
+		#life{
+			position: absolute;
+			left: 15px;
+			}
+		#score-panel{
+			right: 15px;
+			float: right;
+			position: absolute;
+			top: 0;
+			}
+		#lives{
+			top: -20px;
+			position: relative;
+			display: inline;
+			}
+		#score{
+			top: -20px;
+			position: relative;
+			display: inline;
+			}
+		
+    </style>
+
+    <title>Part1</title>
+</head>
+
+<body>
+<!--
+https://ru.stackoverflow.com/questions/427411/threejs-%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5-%D1%81%D1%82%D0%BE%D0%BB%D0%BA%D0%BD%D0%BE%D0%B2%D0%B5%D0%BD%D0%B8%D1%8F-2-%D1%83%D1%85-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2
+ -->
+<!--2 part-->
+
+<p id="introduction">Space, mousedown to fly up</p>
+<button id="startBtn">PLAY</button>
+
+
+<!-- 3 part -->
+
+<div id="info">
+	<div id="life">
+<img src="./additional_sourses/stuff/models/Icon1.png" style="width:100px"/><div id="lives">3</div>
+	</div>
+		<div id="score-panel">
+			<div id="score">0</div><img src="./additional_sourses/stuff/models/Icon3.png"  style="width:60px"/>
+		</div>
+</div>
+<p id="gameover">Game over</p>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./additional_sourses/three.js-master/build/three.module.js",
+               
+                "GLTFLoader": "./three.js-master/examples/jsm/loaders/GLTFLoader.js"
+               
+            }
+        }
+    </script>
+    <script type="module">
+
+        import { Game } from './Game.js';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const game = new Game();
+            window.game = game;
+
+        });
+    </script>
+</body>
+
+</html>
